@@ -1,41 +1,89 @@
-.sun {
-   width: 100px;
-   height: 100px;
-   border-radius: 50%;
-   background-color: gold;
+@import './planets';
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
-.planet {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    opacity: 0.1;
+body {
+    background-color: #2d3f66;
+    background-image: url(../images/background-image.jpg);
+    text-align: center;
+    font-family: 'Alegreya SC', serif;
+    color: #fff;
+}
 
-    &.mercury {
-        background-color: grey;
+.main-heading {
+    font-size: 56px;
+    letter-spacing: 3px;
+    text-shadow: 4px 4px#0478ed;
+}
+
+.quiz-description {
+    font-size: 20px;
+
+    &.hidden {
+        display: none;
     }
-    &.venus {
-        background-color: pink;
-    }
-    &.earth {
-        background-color: green;
-    }
-    &.mars {
-        background-color: red;
-    }
-    &.jupiter {
-        background-color: brown;
-    }
-    &.saturn {
-        background-color: olive;
-    }
-    &.uranus {
-        background-color: blue;
-    }
-    &.neptune {
-        background-color: lightblue;
+}
+
+.question {
+    margin-top: 60px;
+
+    &__wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
     }
 
-    &.visible {
-        opacity: 1;
+    &__content {
+        font-size: 24px;
+    }
+}
+
+.answers {
+    display: flex;
+    justify-content: center;
+
+    &__button {
+        border: 2px solid #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 15px;
+        min-width: 150px;
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 10px grey;
+        }
+    }
+}
+
+.start-button {
+    margin-top: 70px;
+    width: 200px;
+    height: 50px;
+    background-color: #0478ed;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Alegreya SC', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+    outline: none;
+
+    &:hover {
+        background-color: lighten(#0478ed, 10%);
+        transform: scale(1.1);
+        box-shadow: 4px 4px 10px grey;
+    }
+
+    &.moved {
+        position: absolute;
+        left: 30px;
+        bottom: 40px;
     }
 }

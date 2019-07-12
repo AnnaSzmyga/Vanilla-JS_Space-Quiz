@@ -79,24 +79,27 @@ const questions = [
 // get DOM elements
 const questionElement = document.getElementById('question');
 const startButton = document.querySelector('.start-button');
+const quizDescription = document.querySelector('.quiz-description');
 const planets = document.querySelectorAll('.planet');
 
 // initial parameters
-// let showQuestion = false;
 let result = 0;
 let activePlanetIndex = 0;
 
 
 const newQuiz = () => {
-    hidePlanets();
-    result = 0;
-    // showQuestion = true;
-    setNewQuestion();
+	quizDescription.classList.add('hidden');
+	hidePlanets();
+	clearQuestion();
+	result = 0;
+	activePlanetIndex = 0;
+	setNewQuestion();
+	startButton.classList.add('moved');
 };
 
 const finishQuiz = () => {
-    console.log('quiz over!');
-    // showQuestion = false;
+	console.log('quiz over!');
+	startButton.classList.remove('moved');
 }
 
 const randomQuestion = () => {
@@ -114,59 +117,52 @@ const checkAnswer = (question, answer) => {
 	} else {
 		console.log("uuups!");
 	}
-	document.querySelector('.question__wrapper').remove();
+	clearQuestion();
 	setNewQuestion();
 };
 
 const setNewQuestion = () => {
 	if (result < 8) {
 		const question = randomQuestion();
-		createQuestion(question);
+		setTimeout(() => createQuestion(question), 500);
 	} else finishQuiz();
 }
 
+const clearQuestion = () => {
+	const question = document.querySelector('.question__wrapper');
+	if (question !== null) {
+		question.remove();
+	};
+}
+
 const createQuestion = (question) => {
-    // if (showQuestion) {
 
-            // create wrapping div
-            const questionWrapper = document.createElement('div');
-            questionWrapper.classList.add("question__wrapper");
-            questionElement.appendChild(questionWrapper);
+	// create wrapping div
+	const questionWrapper = document.createElement('div');
+	questionWrapper.classList.add("question__wrapper");
+	questionElement.appendChild(questionWrapper);
 
-            // create <p> element with question content
-            const questionContent = document.createElement('p');
-            questionContent.classList.add("question__content");
-            questionContent.innerHTML = question.content;
-            questionWrapper.appendChild(questionContent);
+	// create <p> element with question content
+	const questionContent = document.createElement('p');
+	questionContent.classList.add("question__content");
+	questionContent.innerHTML = question.content;
+	questionWrapper.appendChild(questionContent);
 
-            // create wrapping div for answers
-            const answersWrapper = document.createElement('div');
-            answersWrapper.classList.add("answers");
-            questionWrapper.appendChild(answersWrapper);
+	// create wrapping div for answers
+	const answersWrapper = document.createElement('div');
+	answersWrapper.classList.add("answers");
+	questionWrapper.appendChild(answersWrapper);
 
-            // create buttons for answers
-            const answers = question.answers;
-            answers.forEach((answer) => {
-                const answerButton = document.createElement('div');
-                answerButton.classList.add("answer__button");
-                answerButton.innerHTML = answer;
-                answersWrapper.appendChild(answerButton);
+	// create buttons for answers
+	const answers = question.answers;
+	answers.forEach((answer) => {
+		const answerButton = document.createElement('div');
+		answerButton.classList.add("answers__button");
+		answerButton.innerHTML = answer;
+		answersWrapper.appendChild(answerButton);
 
-                answerButton.addEventListener('click', () => checkAnswer(question, answer));
-                    // if (answer === question.goodAnswer) {
-                    //     console.log("good!");
-                    //     result += 1;
-                    //     showPlanet();
-                    //     activePlanetIndex += 1;
-                    // } else {
-                    //     console.log("uuups!");
-                    // }
-                    // questionWrapper.remove();
-                    // if (result < 8) {
-                    //     setNewQuestion();
-                    // } else finishQuiz();
-            });
-    // }
+		answerButton.addEventListener('click', () => checkAnswer(question, answer));
+	});
 };
 
 const showPlanet = () => {
