@@ -149,15 +149,8 @@ body {
   font-size: 20px;
 }
 
-.quiz-description.hidden {
-  display: none;
-}
-
 .question {
   margin-top: 60px;
-}
-
-.question__wrapper {
   margin: 0 auto;
   width: 100%;
   max-width: 700px;
@@ -216,5 +209,9 @@ body {
   position: absolute;
   left: 30px;
   bottom: 40px;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

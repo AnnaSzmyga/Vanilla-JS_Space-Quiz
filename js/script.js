@@ -77,20 +77,31 @@ const questions = [
 ];
 
 // get DOM elements
-const questionElement = document.getElementById('question');
 const startButton = document.querySelector('.start-button');
 const quizDescription = document.querySelector('.quiz-description');
+
+//const questionElement = document.getElementById('question');
+const questionContent = document.querySelector('.question__content');
+const answersButtons = document.querySelectorAll('.answers__button');
+const answersWrapper = document.querySelector('.answers');
+
 const planets = document.querySelectorAll('.planet');
+
+const randomQuestion = () => {
+    const questionIndex = Math.floor(Math.random() * questions.length);
+    const question = questions[questionIndex];
+    return question;
+};
 
 // initial parameters
 let result = 0;
 let activePlanetIndex = 0;
+let activeQuestion = randomQuestion();
 
 
 const newQuiz = () => {
 	quizDescription.classList.add('hidden');
 	hidePlanets();
-	clearQuestion();
 	result = 0;
 	activePlanetIndex = 0;
 	setNewQuestion();
@@ -99,17 +110,14 @@ const newQuiz = () => {
 
 const finishQuiz = () => {
 	console.log('quiz over!');
+	questionContent.innerHTML = '';
+	answersWrapper.classList.add('hidden');
 	startButton.classList.remove('moved');
 }
 
-const randomQuestion = () => {
-    const questionIndex = Math.floor(Math.random() * questions.length);
-    const question = questions[questionIndex];
-    return question;
-};
-
-const checkAnswer = (question, answer) => {
-	if (answer === question.goodAnswer) {
+const checkAnswer = (e) => {
+	const answer = e.target.innerText;
+	if (answer === activeQuestion.goodAnswer) {
 		console.log("good!");
 		result += 1;
 		showPlanet();
@@ -117,52 +125,27 @@ const checkAnswer = (question, answer) => {
 	} else {
 		console.log("uuups!");
 	}
-	clearQuestion();
+	activeQuestion = randomQuestion();
 	setNewQuestion();
 };
 
 const setNewQuestion = () => {
 	if (result < 8) {
-		const question = randomQuestion();
-		setTimeout(() => createQuestion(question), 500);
+		setTimeout(() => createQuestion(), 500);
 	} else finishQuiz();
 }
 
-const clearQuestion = () => {
-	const question = document.querySelector('.question__wrapper');
-	if (question !== null) {
-		question.remove();
+const createQuestion = () => {
+	questionContent.innerHTML = activeQuestion.content;
+	const answers = activeQuestion.answers;
+	answersWrapper.classList.remove('hidden');
+
+	for (let i = 0; i < answers.length; i++) {
+		const button = answersButtons[i];
+		const answer = answers[i];
+		button.innerHTML = answer;
+		button.addEventListener('click', checkAnswer);
 	};
-}
-
-const createQuestion = (question) => {
-
-	// create wrapping div
-	const questionWrapper = document.createElement('div');
-	questionWrapper.classList.add("question__wrapper");
-	questionElement.appendChild(questionWrapper);
-
-	// create <p> element with question content
-	const questionContent = document.createElement('p');
-	questionContent.classList.add("question__content");
-	questionContent.innerHTML = question.content;
-	questionWrapper.appendChild(questionContent);
-
-	// create wrapping div for answers
-	const answersWrapper = document.createElement('div');
-	answersWrapper.classList.add("answers");
-	questionWrapper.appendChild(answersWrapper);
-
-	// create buttons for answers
-	const answers = question.answers;
-	answers.forEach((answer) => {
-		const answerButton = document.createElement('div');
-		answerButton.classList.add("answers__button");
-		answerButton.innerHTML = answer;
-		answersWrapper.appendChild(answerButton);
-
-		answerButton.addEventListener('click', () => checkAnswer(question, answer));
-	});
 };
 
 const showPlanet = () => {

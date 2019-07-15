@@ -19,21 +19,21 @@ body {
 
 .quiz-description {
     font-size: 20px;
-
-    &.hidden {
-        display: none;
-    }
 }
 
 .question {
     margin-top: 60px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
 
-    &__wrapper {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 700px;
-        text-align: center;
-    }
+    // &__wrapper {
+    //     margin: 0 auto;
+    //     width: 100%;
+    //     max-width: 700px;
+    //     text-align: center;
+    // }
 
     &__content {
         font-size: 24px;
@@ -86,4 +86,8 @@ body {
         left: 30px;
         bottom: 40px;
     }
+}
+
+.hidden {
+    display: none;
 }
