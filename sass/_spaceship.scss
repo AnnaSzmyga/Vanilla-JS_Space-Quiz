@@ -116,6 +116,7 @@
         left: 50%;
         transform: translateX(-50%);
         box-shadow: inset 4px 4px rgba(128, 128, 128, .4);
+        text-transform: capitalize;
     }
 
     &__bottom {

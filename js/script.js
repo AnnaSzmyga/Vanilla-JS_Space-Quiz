@@ -85,9 +85,11 @@ const answersButtons = document.querySelectorAll('.answers__button');
 const answersWrapper = document.querySelector('.answers');
 
 const planets = document.querySelectorAll('.planet');
-const modal = document.querySelector('.overlay');
-const modalCloseButton = document.querySelector('.modal__close-button');
 const spaceship = document.querySelector('.spaceship');
+const overlay = document.querySelector('.overlay');
+const modals = document.querySelectorAll('.modal');
+const modalCloseButtons = document.querySelectorAll('.modal__close-button');
+const okButton = document.querySelector('.ok-button');
 
 const randomQuestion = () => {
     const questionIndex = Math.floor(Math.random() * questions.length);
@@ -99,9 +101,11 @@ const randomQuestion = () => {
 let result = 0;
 let activePlanetIndex = 0;
 let activeQuestion = randomQuestion();
+let playerName;
 
 
 const newQuiz = () => {
+	showModal('player-name');
 	quizDescription.classList.add('hidden');
 	hidePlanets();
 	result = 0;
@@ -118,7 +122,7 @@ const finishQuiz = () => {
 	questionContent.innerHTML = '';
 	answersWrapper.classList.add('hidden');
 	startButton.classList.remove('moved');
-	setTimeout(() => showModal(), 1000);
+	setTimeout(() => showModal('final'), 1000);
 }
 
 const checkAnswer = (e) => {
@@ -170,22 +174,44 @@ function restartSpaceship() {
 	spaceship.style.animation = null;
 }
 
-const showModal = () => {
-	modal.classList.remove('hidden');
+const getPlayerName = (e) => {
+	console.log(document.querySelector('.player-name-modal').value);
+	console.log(this.value);
+	console.log(e.target.value);
+
+	e.preventDefault();
+	playerName = document.querySelector('.player-name-input').value;
+	document.querySelector('.spaceship__numbers').innerHTML = playerName;
+	document.querySelector('.player-name-output').innerHTML = playerName;
 }
-const closeModal = () => {
-	modal.classList.add('hidden');
+
+const showModal = (modal) => {
+	overlay.classList.remove('hidden');
+	document.getElementById(modal).classList.remove('hidden');
+}
+const closeModals = () => {
+	overlay.classList.add('hidden');
+	modals.forEach((modal) => {
+		modal.classList.add('hidden');
+	});
 }
 
 startButton.addEventListener('click', newQuiz);
 
-// closing modal
-modalCloseButton.addEventListener('click', closeModal);
-modal.addEventListener('click', function(e) {
+// closing modals
+modalCloseButtons.forEach((button) => {
+	button.addEventListener('click', closeModals);
+});
+overlay.addEventListener('click', function(e) {
 	if (e.target === this) {
-		closeModal();
+		closeModals();
 	}
 });
+
+okButton.addEventListener('click', (e) => {
+	getPlayerName(e);
+	closeModals();
+})
 
 
 

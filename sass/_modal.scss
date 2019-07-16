@@ -57,3 +57,39 @@
         }
     }
 }
+
+.final {
+    span {
+        text-transform: capitalize;
+    }
+}
+
+.player-name-modal {
+    .player-name-input {
+        width: 70%;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+        font-family: 'Alegreya SC', serif;
+    }
+    .ok-button {
+        display: block;
+        margin: 20px auto;
+        font-family: 'Alegreya SC', serif;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        background-color: #0478ed;
+        transition: .3s;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+        padding: 5px 20px;
+
+        &:hover {
+            background-color: lighten(#0478ed, 10%);
+            transform: scale(1.1);
+            box-shadow: 4px 4px 10px grey;
+        }
+    }
+}
