@@ -80,12 +80,14 @@ const questions = [
 const startButton = document.querySelector('.start-button');
 const quizDescription = document.querySelector('.quiz-description');
 
-//const questionElement = document.getElementById('question');
 const questionContent = document.querySelector('.question__content');
 const answersButtons = document.querySelectorAll('.answers__button');
 const answersWrapper = document.querySelector('.answers');
 
 const planets = document.querySelectorAll('.planet');
+const modal = document.querySelector('.overlay');
+const modalCloseButton = document.querySelector('.modal__close-button');
+const spaceship = document.querySelector('.spaceship');
 
 const randomQuestion = () => {
     const questionIndex = Math.floor(Math.random() * questions.length);
@@ -104,15 +106,19 @@ const newQuiz = () => {
 	hidePlanets();
 	result = 0;
 	activePlanetIndex = 0;
+	restartSpaceship();
+	spaceship.classList.add('run');
 	setNewQuestion();
 	startButton.classList.add('moved');
 };
+
 
 const finishQuiz = () => {
 	console.log('quiz over!');
 	questionContent.innerHTML = '';
 	answersWrapper.classList.add('hidden');
 	startButton.classList.remove('moved');
+	setTimeout(() => showModal(), 1000);
 }
 
 const checkAnswer = (e) => {
@@ -158,7 +164,29 @@ const hidePlanets = () => {
     });
 };
 
+function restartSpaceship() {
+	spaceship.style.animation = 'none';
+	spaceship.offsetHeight; /* trigger reflow */
+	spaceship.style.animation = null;
+}
+
+const showModal = () => {
+	modal.classList.remove('hidden');
+}
+const closeModal = () => {
+	modal.classList.add('hidden');
+}
+
 startButton.addEventListener('click', newQuiz);
+
+// closing modal
+modalCloseButton.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e) {
+	if (e.target === this) {
+		closeModal();
+	}
+});
+
 
 
 

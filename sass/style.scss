@@ -1,4 +1,6 @@
 @import './planets';
+@import './modal';
+@import './spaceship';
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -27,13 +29,6 @@ body {
     width: 100%;
     max-width: 700px;
     text-align: center;
-
-    // &__wrapper {
-    //     margin: 0 auto;
-    //     width: 100%;
-    //     max-width: 700px;
-    //     text-align: center;
-    // }
 
     &__content {
         font-size: 24px;

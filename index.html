@@ -12,17 +12,10 @@
     <h1 class="main-heading">Space Quiz</h1>
     <p class="quiz-description">Odpowiedz prawidłowo na pytania i zbierz wszystkie planety Układu Słonecznego!</p>
 
+    <!-- Planets -->
     <div class="solar-system">
         <div class="sun"></div>
         <div class="planets">
-            <!-- <div class="planet-wrapper"><div class="planet mercury"></div></div>
-            <div class="planet-wrapper"><div class="planet venus"></div></div>
-            <div class="planet-wrapper"><div class="planet earth"></div></div>
-            <div class="planet-wrapper"><div class="planet mars"></div></div>
-            <div class="planet-wrapper"><div class="planet jupiter"></div></div>
-            <div class="planet-wrapper"><div class="planet saturn"></div></div>
-            <div class="planet-wrapper"><div class="planet uranus"></div></div>
-            <div class="planet-wrapper"><div class="planet neptune"></div></div> -->
             <div class="planet mercury"></div>
             <div class="planet venus"></div>
             <div class="planet earth"></div>
@@ -34,17 +27,39 @@
         </div>
     </div>
 
+    <!-- Questions -->
     <div class="question" id="question">
-
-            <p class="question__content"></p>
-            <div class="answers hidden">
-                <div class="answers__button"></div>
-                <div class="answers__button"></div>
-                <div class="answers__button"></div>
-            </div>
-
+        <p class="question__content"></p>
+        <div class="answers hidden">
+            <div class="answers__button"></div>
+            <div class="answers__button"></div>
+            <div class="answers__button"></div>
+        </div>
     </div>
     <button class="start-button">Nowy Quiz</button>
+
+    <!-- Modal  -->
+    <div class="overlay hidden">
+        <div class="modal">
+            <h2>Brawo!</h2>
+            <p>Zebrałeś wszystkie planety!</p>
+            <button class="modal__close-button"></button>
+        </div>
+    </div>
+
+    <!-- Spaceship -->
+    <div class="spaceship">
+        <div class="spaceship__body">
+            <div class="spaceship__top"></div>
+            <div class="spaceship__window"></div>
+            <div class="spaceship__numbers">SR05F4b-8</div>
+        </div>
+        <div class="spaceship__bottom">
+            <div class="spaceship__flame"></div>
+            <div class="spaceship__flame"></div>
+            <div class="spaceship__flame"></div>
+        </div>
+    </div>
 
 
     <script  src="js/script.js"></script>
