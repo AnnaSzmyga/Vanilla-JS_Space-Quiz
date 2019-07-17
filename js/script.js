@@ -1,7 +1,7 @@
 // const questionsData = require('../data/data.json');
 // import { questionsData } from '../data/data.json';
 
-const questions = [
+const initialQuestions = [
 	{
 		id: 1,
 		content: "Jaka jest największa planeta w Układzie Słonecznym?",
@@ -75,6 +75,7 @@ const questions = [
 		answers: ["na Jowiszu", "na Marsie", "na Neptunie"]
 	}
 ];
+let questions = [...initialQuestions];
 
 // get DOM elements
 const startButton = document.querySelector('.start-button');
@@ -93,9 +94,14 @@ const modalCloseButtons = document.querySelectorAll('.modal__close-button');
 const okButton = document.querySelector('.ok-button');
 
 const randomQuestion = () => {
-    const questionIndex = Math.floor(Math.random() * questions.length);
-    const question = questions[questionIndex];
-    return question;
+	if (questions.length === 0) {
+		questions = [...initialQuestions];
+	}
+	const questionIndex = Math.floor(Math.random() * questions.length);
+	const question = questions[questionIndex];
+	questions.splice(questionIndex, 1);
+
+	return question;
 };
 
 // initial parameters
@@ -119,6 +125,7 @@ const startFirstQuiz = () => {
 }
 
 const newQuiz = () => {
+	questions = initialQuestions;
 	hidePlanets();
 	result = 0;
 	wrongAnswersNumber = 0;
