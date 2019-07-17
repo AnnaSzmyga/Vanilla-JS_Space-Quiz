@@ -11,6 +11,7 @@ body {
     text-align: center;
     font-family: 'Alegreya SC', serif;
     color: #fff;
+    overflow: hidden;
 }
 
 .main-heading {
@@ -55,11 +56,22 @@ body {
     }
 }
 
-.start-button {
-    margin-top: 70px;
-    width: 200px;
-    height: 50px;
-    background-color: #0478ed;
+.wrong-answer-line {
+    width: 2px;
+    height: 4px;
+    margin: 25px auto;
+    background-color: #ac2f23;
+    box-shadow: 0 0 10px 7px #ac2f23;
+    opacity: 0;
+    transition: .2s;
+
+    &.run {
+        width: 90vw;
+        opacity: 1;
+    }
+}
+
+.button {
     border: 2px solid #fff;
     border-radius: 5px;
     color: #fff;
@@ -71,28 +83,55 @@ body {
     outline: none;
 
     &:hover {
-        background-color: lighten(#0478ed, 10%);
         transform: scale(1.1);
         box-shadow: 4px 4px 10px grey;
+    }
+}
+
+.start-button {
+    @extend .button;
+    margin-top: 70px;
+    width: 200px;
+    height: 50px;
+    background-color: #0478ed;
+
+    &:hover {
+        background-color: lighten(#0478ed, 10%);
     }
 
     &.moved {
         position: absolute;
         left: 30px;
-        bottom: 40px;
+        bottom: 110px;
+    }
+}
+
+.finish-button {
+    @extend .button;
+    margin-top: 70px;
+    width: 200px;
+    height: 50px;
+    background-color: #ac2f23;
+    position: absolute;
+    left: 30px;
+    bottom: 40px;
+
+    &:hover {
+        background-color: lighten(#ac2f23, 10%);
     }
 }
 
 .results {
     display: inline-block;
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: left;
 
     &__heading {
         letter-spacing: 2px;
+        margin-bottom: 0;
     }
 
     .correct-answers-number, .wrong-answers-number {
@@ -104,7 +143,6 @@ body {
     .correct-answers-number {
         color: #0478ed;
         margin: 0;
-
     }
     .wrong-answers-number {
         color: #ac2f23;

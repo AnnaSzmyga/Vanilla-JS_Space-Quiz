@@ -78,12 +78,13 @@ const questions = [
 
 // get DOM elements
 const startButton = document.querySelector('.start-button');
+const finishButton = document.querySelector('.finish-button');
 const quizDescription = document.querySelector('.quiz-description');
 
 const questionContent = document.querySelector('.question__content');
 const answersButtons = document.querySelectorAll('.answers__button');
 const answersWrapper = document.querySelector('.answers');
-
+const results = document.querySelector('.results');
 const planets = document.querySelectorAll('.planet');
 const spaceship = document.querySelector('.spaceship');
 const overlay = document.querySelector('.overlay');
@@ -100,7 +101,7 @@ const randomQuestion = () => {
 // initial parameters
 let result = 0;
 let activePlanetIndex = 0;
-let activeQuestion = randomQuestion();
+let activeQuestion;
 let playerName;
 let wrongAnswersNumber = 0;
 let firstQuiz = true;
@@ -108,11 +109,13 @@ let firstQuiz = true;
 const startFirstQuiz = () => {
 	quizDescription.classList.add('hidden');
 	updateResults();
-	document.querySelector('.results').classList.remove('hidden');
-	restartSpaceship();
+	results.classList.remove('hidden');
+	restartAnimation(spaceship);
 	spaceship.classList.add('run');
+	activeQuestion = randomQuestion();
 	setTimeout(createQuestion(), 2000); // dlaczego nie działa opóźnienie?
 	startButton.classList.add('moved');
+	finishButton.classList.remove('hidden');
 }
 
 const newQuiz = () => {
@@ -121,7 +124,7 @@ const newQuiz = () => {
 	wrongAnswersNumber = 0;
 	updateResults();
 	activePlanetIndex = 0;
-	restartSpaceship();
+	restartAnimation(spaceship);
 	spaceship.classList.add('run');
 	activeQuestion = randomQuestion();
 	setTimeout(createQuestion(), 2000); // dlaczego nie działa opóźnienie?
@@ -136,15 +139,28 @@ const finishQuiz = () => {
 	setTimeout(() => showModal('final'), 1000);
 }
 
-const checkAnswer = (e) => {
-	const answer = e.target.innerText;
+const resetQuiz = () => {
+	quizDescription.classList.remove('hidden');
+	questionContent.innerHTML = '';
+	answersWrapper.classList.add('hidden');
+	startButton.classList.remove('moved');
+	finishButton.classList.add('hidden');
+	hidePlanets();
+	activePlanetIndex = 0;
+	firstQuiz = true;
+	document.querySelector('.spaceship__numbers').innerHTML = 'SR05F4b-8';
+	results.classList.add('hidden');
+	document.querySelector('.player-name-input').value = "";
+}
+
+function checkAnswer() {
+	const answer = this.innerText;
 	if (answer === activeQuestion.goodAnswer) {
 		result += 1;
 		showPlanet();
 		activePlanetIndex += 1;
 	} else {
-		console.log("uuups!");
-		wrongAnswersNumber += 1;
+		wrongAnswer();
 	}
 	updateResults();
 	activeQuestion = randomQuestion();
@@ -175,20 +191,29 @@ const updateResults = () => {
 	document.querySelector('.wrong-answers-number span').innerHTML = wrongAnswersNumber;
 }
 
+const wrongAnswer = () => {
+	wrongAnswersNumber += 1;
+	const line = document.querySelector('.wrong-answer-line');
+	line.classList.add('run');
+	setTimeout(() => {
+		line.classList.remove('run');
+	}, 200);
+}
+
 const showPlanet = () => {
-    planets[activePlanetIndex].classList.add('visible');
+	planets[activePlanetIndex].classList.add('visible');
 };
 
 const hidePlanets = () => {
     planets.forEach((planet) => {
-        planet.classList.remove('visible');
+		planet.classList.remove('visible');
     });
 };
 
-function restartSpaceship() {
-	spaceship.style.animation = 'none';
-	spaceship.offsetHeight; /* trigger reflow */
-	spaceship.style.animation = null;
+function restartAnimation(element) {
+	element.style.animation = 'none';
+	element.offsetHeight; /* trigger reflow */
+	element.style.animation = null;
 }
 
 const setPlayerName = () => {
@@ -217,6 +242,8 @@ startButton.addEventListener('click', () => {
 		showModal('player-name');
 	} else newQuiz();
 });
+
+finishButton.addEventListener('click', resetQuiz);
 
 // closing modals
 modalCloseButtons.forEach((button) => {
