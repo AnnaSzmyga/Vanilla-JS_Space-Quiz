@@ -28,7 +28,7 @@
         top: 0;
         right: 0;
         transform: translate(50%, -50%);
-        background-color: #0478ed;
+        background-color: $blue;
         border: 2px solid #fff;
         border-radius: 50%;
         outline: none;
@@ -36,7 +36,7 @@
         transition: .3s;
 
         &:hover {
-            background-color: lighten(#0478ed, 10%);
+            background-color: lighten($blue, 10%);
         }
 
         &::before, &::after {
@@ -73,23 +73,14 @@
         font-family: 'Alegreya SC', serif;
     }
     .ok-button {
+        @extend .button;
         display: block;
         margin: 20px auto;
-        font-family: 'Alegreya SC', serif;
-        border: 2px solid #fff;
-        border-radius: 4px;
-        background-color: #0478ed;
-        transition: .3s;
-        outline: none;
-        cursor: pointer;
-        color: #fff;
-        font-size: 24px;
+        background-color: $blue;
         padding: 5px 20px;
 
         &:hover {
-            background-color: lighten(#0478ed, 10%);
-            transform: scale(1.1);
-            box-shadow: 4px 4px 10px grey;
+            background-color: lighten($blue, 10%);
         }
     }
 }

@@ -2,6 +2,10 @@
 @import './modal';
 @import './spaceship';
 
+// variables
+$red: #ac2f23;
+$blue: #0478ed;
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -17,7 +21,7 @@ body {
 .main-heading {
     font-size: 56px;
     letter-spacing: 3px;
-    text-shadow: 4px 4px#0478ed;
+    text-shadow: 4px 4px $blue;
 }
 
 .quiz-description {
@@ -60,8 +64,8 @@ body {
     width: 2px;
     height: 4px;
     margin: 25px auto;
-    background-color: #ac2f23;
-    box-shadow: 0 0 10px 7px #ac2f23;
+    background-color: $red;
+    box-shadow: 0 0 10px 7px $red;
     opacity: 0;
     transition: .2s;
 
@@ -93,10 +97,10 @@ body {
     margin-top: 70px;
     width: 200px;
     height: 50px;
-    background-color: #0478ed;
+    background-color: $blue;
 
     &:hover {
-        background-color: lighten(#0478ed, 10%);
+        background-color: lighten($blue, 10%);
     }
 
     &.moved {
@@ -111,13 +115,13 @@ body {
     margin-top: 70px;
     width: 200px;
     height: 50px;
-    background-color: #ac2f23;
+    background-color: $red;
     position: absolute;
     left: 30px;
     bottom: 40px;
 
     &:hover {
-        background-color: lighten(#ac2f23, 10%);
+        background-color: lighten($red, 10%);
     }
 }
 
@@ -141,11 +145,11 @@ body {
         }
     }
     .correct-answers-number {
-        color: #0478ed;
+        color: $blue;
         margin: 0;
     }
     .wrong-answers-number {
-        color: #ac2f23;
+        color: $red;
         margin-top: 0;
     }
 }
