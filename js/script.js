@@ -102,23 +102,34 @@ let result = 0;
 let activePlanetIndex = 0;
 let activeQuestion = randomQuestion();
 let playerName;
+let wrongAnswersNumber = 0;
+let firstQuiz = true;
 
+const startFirstQuiz = () => {
+	quizDescription.classList.add('hidden');
+	updateResults();
+	document.querySelector('.results').classList.remove('hidden');
+	restartSpaceship();
+	spaceship.classList.add('run');
+	setTimeout(createQuestion(), 2000); // dlaczego nie działa opóźnienie?
+	startButton.classList.add('moved');
+}
 
 const newQuiz = () => {
-	showModal('player-name');
-	quizDescription.classList.add('hidden');
 	hidePlanets();
 	result = 0;
+	wrongAnswersNumber = 0;
+	updateResults();
 	activePlanetIndex = 0;
 	restartSpaceship();
 	spaceship.classList.add('run');
-	setNewQuestion();
+	activeQuestion = randomQuestion();
+	setTimeout(createQuestion(), 2000); // dlaczego nie działa opóźnienie?
 	startButton.classList.add('moved');
 };
 
 
 const finishQuiz = () => {
-	console.log('quiz over!');
 	questionContent.innerHTML = '';
 	answersWrapper.classList.add('hidden');
 	startButton.classList.remove('moved');
@@ -128,13 +139,14 @@ const finishQuiz = () => {
 const checkAnswer = (e) => {
 	const answer = e.target.innerText;
 	if (answer === activeQuestion.goodAnswer) {
-		console.log("good!");
 		result += 1;
 		showPlanet();
 		activePlanetIndex += 1;
 	} else {
 		console.log("uuups!");
+		wrongAnswersNumber += 1;
 	}
+	updateResults();
 	activeQuestion = randomQuestion();
 	setNewQuestion();
 };
@@ -158,6 +170,11 @@ const createQuestion = () => {
 	};
 };
 
+const updateResults = () => {
+	document.querySelector('.correct-answers-number span').innerHTML = result;
+	document.querySelector('.wrong-answers-number span').innerHTML = wrongAnswersNumber;
+}
+
 const showPlanet = () => {
     planets[activePlanetIndex].classList.add('visible');
 };
@@ -174,13 +191,11 @@ function restartSpaceship() {
 	spaceship.style.animation = null;
 }
 
-const getPlayerName = (e) => {
-	console.log(document.querySelector('.player-name-modal').value);
-	console.log(this.value);
-	console.log(e.target.value);
-
-	e.preventDefault();
-	playerName = document.querySelector('.player-name-input').value;
+const setPlayerName = () => {
+	playerName = document.querySelector('.player-name-input').value.trim();
+	if (playerName.length > 10) {
+		playerName = playerName.slice(0, 10);
+	}
 	document.querySelector('.spaceship__numbers').innerHTML = playerName;
 	document.querySelector('.player-name-output').innerHTML = playerName;
 }
@@ -196,7 +211,12 @@ const closeModals = () => {
 	});
 }
 
-startButton.addEventListener('click', newQuiz);
+startButton.addEventListener('click', () => {
+	if (firstQuiz) {
+		firstQuiz = false;
+		showModal('player-name');
+	} else newQuiz();
+});
 
 // closing modals
 modalCloseButtons.forEach((button) => {
@@ -208,9 +228,10 @@ overlay.addEventListener('click', function(e) {
 	}
 });
 
-okButton.addEventListener('click', (e) => {
-	getPlayerName(e);
+okButton.addEventListener('click', () => {
+	setPlayerName();
 	closeModals();
+	startFirstQuiz();
 })
 
 

@@ -83,6 +83,35 @@ body {
     }
 }
 
+.results {
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+
+    &__heading {
+        letter-spacing: 2px;
+    }
+
+    .correct-answers-number, .wrong-answers-number {
+        span {
+            font-weight: bold;
+            font-size: larger;
+        }
+    }
+    .correct-answers-number {
+        color: #0478ed;
+        margin: 0;
+
+    }
+    .wrong-answers-number {
+        color: #ac2f23;
+        margin-top: 0;
+    }
+}
+
 .hidden {
     display: none;
 }
