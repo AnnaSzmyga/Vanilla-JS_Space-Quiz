@@ -53,7 +53,7 @@
     animation: bounce 2s infinite;
 
     &.run {
-        animation: fly 2s ease-in;
+        animation: fly 2s ease-in, bounce 2s 2.2s infinite;
     }
 
     &__body {

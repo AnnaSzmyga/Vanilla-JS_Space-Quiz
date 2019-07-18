@@ -1,10 +1,8 @@
+@import './variables';
 @import './planets';
-@import './modal';
+@import './modals';
 @import './spaceship';
 
-// variables
-$red: #ac2f23;
-$blue: #0478ed;
 
 *, *::before, *::after {
     box-sizing: border-box;

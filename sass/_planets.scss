@@ -131,6 +131,6 @@
     &.visible {
         opacity: 1;
         transform: translate(0, 0) scale(1);
-        //animation: planetBounce 2s infinite;
+        animation: planetBounce 2s .5s infinite ;
     }
 }
