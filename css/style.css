@@ -243,54 +243,54 @@
 @keyframes burn {
   0% {
     transform: rotate(0deg);
-    height: 70px;
+    height: 100%;
   }
   25% {
     transform: rotate(-6deg);
-    height: 75px;
+    height: 110%;
   }
   50% {
     transform: rotate(0deg);
-    height: 70px;
+    height: 100%;
   }
   75% {
     transform: rotate(6deg);
-    height: 65px;
+    height: 90%;
   }
   100% {
     transform: rotate(0deg);
-    height: 70px;
+    height: 100%;
   }
 }
 
 @keyframes fly {
   0% {
-    top: calc(100vh - 420px);
+    bottom: 60px;
     right: 30px;
   }
   100% {
-    top: -400px;
+    bottom: 120vh;
     right: 50vw;
-    transform: rotate(-45deg);
+    transform: rotate(-30deg);
   }
 }
 
 @keyframes bounce {
   0% {
-    top: calc(100vh - 420px);
+    bottom: 60px;
   }
   50% {
-    top: calc(100vh - 410px);
+    bottom: 50px;
   }
   100% {
-    top: calc(100vh - 420px);
+    bottom: 60px;
   }
 }
 
 .spaceship {
   position: fixed;
   right: 30px;
-  top: calc(100vh - 420px);
+  bottom: 60px;
   display: inline-block;
   animation: bounce 2s infinite;
 }
@@ -308,6 +308,13 @@
   overflow: hidden;
 }
 
+@media (max-width: 575px) {
+  .spaceship__body {
+    width: 60px;
+    height: 150px;
+  }
+}
+
 .spaceship__body::after {
   display: block;
   content: "";
@@ -318,6 +325,14 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 575px) {
+  .spaceship__body::after {
+    width: 60px;
+    height: 150px;
+    box-shadow: inset 2px 6px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .spaceship__top {
@@ -331,6 +346,12 @@
   border-bottom-right-radius: 50%;
 }
 
+@media (max-width: 575px) {
+  .spaceship__top {
+    height: 30px;
+  }
+}
+
 .spaceship__window {
   width: 60px;
   height: 60px;
@@ -342,6 +363,15 @@
   left: 50%;
   transform: translateX(-50%);
   box-shadow: inset 5px 5px rgba(128, 128, 128, 0.5);
+}
+
+@media (max-width: 575px) {
+  .spaceship__window {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ac2f23;
+    top: 40px;
+  }
 }
 
 .spaceship__numbers {
@@ -362,6 +392,19 @@
   text-transform: capitalize;
 }
 
+@media (max-width: 575px) {
+  .spaceship__numbers {
+    width: 40px;
+    height: 25px;
+    border: 2px solid #ac2f23;
+    border-radius: 2px;
+    top: 80px;
+    box-shadow: inset 2px 2px rgba(128, 128, 128, 0.4);
+    font-size: 8px;
+    line-height: 20px;
+  }
+}
+
 .spaceship__bottom {
   width: 150px;
   height: 60px;
@@ -375,14 +418,29 @@
   box-shadow: inset 5px 4px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 575px) {
+  .spaceship__bottom {
+    width: 70px;
+    height: 25px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    top: 130px;
+  }
+}
+
 .spaceship__flame {
   position: absolute;
   top: 30px;
   width: 35%;
-  height: 70px;
   background-color: #f4d109;
   border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
   box-shadow: 5px 5px 20px #f4d109;
+}
+
+@media (max-width: 575px) {
+  .spaceship__flame {
+    top: 18px;
+  }
 }
 
 .spaceship__flame:nth-child(1) {

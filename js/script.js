@@ -56,7 +56,6 @@ const newQuiz = () => {
 	updateResults();
 	activePlanetIndex = 0;
 	restartAnimation(spaceship);
-	//spaceship.classList.add('run');
 	activeQuestion = randomQuestion();
 	setTimeout(createQuestion(), 2000); // dlaczego nie działa opóźnienie?
 	startButton.classList.add('moved');
