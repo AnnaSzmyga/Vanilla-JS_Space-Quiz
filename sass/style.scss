@@ -20,21 +20,33 @@ body {
     font-size: 56px;
     letter-spacing: 3px;
     text-shadow: 4px 4px $blue;
+
+    @media (max-width: 575px) {
+        font-size: 36px;
+        text-shadow: 3px 3px $blue;
+    }
 }
 
 .quiz-description {
     font-size: 20px;
+    @media (max-width: 575px) {
+        font-size: 16px;
+    }
 }
 
 .question {
     margin-top: 60px;
     margin: 0 auto;
     width: 100%;
+    width: 100%;
     max-width: 700px;
     text-align: center;
 
     &__content {
         font-size: 24px;
+        @media (max-width: 575px) {
+            font-size: 20px;
+        }
     }
 }
 
@@ -50,6 +62,13 @@ body {
         min-width: 150px;
         cursor: pointer;
         transition: .2s;
+
+        @media (max-width: 575px) {
+            font-size: 16px;
+            margin: 5px;
+            padding: 5px 8px;
+            min-width: 30vw;
+        }
 
         &:hover {
             transform: scale(1.1);
@@ -130,6 +149,12 @@ body {
     left: 50%;
     transform: translateX(-50%);
     text-align: left;
+
+    @media (max-width: 575px) {
+        left: 20px;
+        bottom: 5px;
+        transform: none;
+    }
 
     &__heading {
         letter-spacing: 2px;

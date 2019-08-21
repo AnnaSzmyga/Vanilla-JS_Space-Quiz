@@ -500,13 +500,27 @@ body {
   text-shadow: 4px 4px #0478ed;
 }
 
+@media (max-width: 575px) {
+  .main-heading {
+    font-size: 36px;
+    text-shadow: 3px 3px #0478ed;
+  }
+}
+
 .quiz-description {
   font-size: 20px;
+}
+
+@media (max-width: 575px) {
+  .quiz-description {
+    font-size: 16px;
+  }
 }
 
 .question {
   margin-top: 60px;
   margin: 0 auto;
+  width: 100%;
   width: 100%;
   max-width: 700px;
   text-align: center;
@@ -514,6 +528,12 @@ body {
 
 .question__content {
   font-size: 24px;
+}
+
+@media (max-width: 575px) {
+  .question__content {
+    font-size: 20px;
+  }
 }
 
 .answers {
@@ -531,6 +551,15 @@ body {
   min-width: 150px;
   cursor: pointer;
   transition: .2s;
+}
+
+@media (max-width: 575px) {
+  .answers__button {
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px 8px;
+    min-width: 30vw;
+  }
 }
 
 .answers__button:hover {
@@ -608,6 +637,14 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: left;
+}
+
+@media (max-width: 575px) {
+  .results {
+    left: 20px;
+    bottom: 5px;
+    transform: none;
+  }
 }
 
 .results__heading {
