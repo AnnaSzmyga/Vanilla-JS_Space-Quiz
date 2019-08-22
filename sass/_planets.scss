@@ -60,6 +60,7 @@
     transform: translate(150px, -150px) scale(0.5);
     transition: .3s;
     box-shadow: 1px 1px 10px #a6a6b2;
+    flex-shrink: 0;
 
     @media (max-width: 575px) {
         transform: translate(30px, -30px) scale(0.5);
@@ -76,6 +77,11 @@
             height: 8px;
             margin-left: 10px;
         }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 15px;
+            height: 15px;
+            margin-left: 10px;
+        }
     }
     &.venus {
         background-color: #b794c1;
@@ -87,6 +93,10 @@
             width: 10px;
             height: 10px;
             margin-top: 50px;
+        }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 18px;
+            height: 18px;
         }
     }
     &.earth {
@@ -101,6 +111,10 @@
             margin-top: 10px;
             margin-bottom: 30px;
         }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 25px;
+            height: 25px;
+        }
     }
     &.mars {
         background-color: #ac2f23;
@@ -112,6 +126,10 @@
             width: 12px;
             height: 12px;
             margin-top: 30px;
+        }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 20px;
+            height: 20px;
         }
     }
     &.jupiter {
@@ -125,6 +143,10 @@
             height: 20px;
             margin-top: 20px;
         }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 70px;
+            height: 70px;
+        }
     }
     &.saturn {
         background-color: #648b63;
@@ -136,6 +158,10 @@
             width: 17px;
             height: 17px;
             margin-top: 30px;
+        }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 50px;
+            height: 50px;
         }
 
         &::before, &::after {
@@ -154,6 +180,10 @@
                 border: 3px solid #00c7e8;
                 border-top: none;
             }
+            @media (min-width: 576px) and (max-width: 991px) {
+                border: 6px solid #00c7e8;
+                border-top: none;
+            }
         }
         &::before {
             width: 140px;
@@ -162,6 +192,10 @@
                 width: 35px;
                 height: 10px;
             }
+            @media (min-width: 576px) and (max-width: 991px) {
+                width: 90px;
+                height: 20px;
+            }
         }
         &::after {
             width: 170px;
@@ -169,6 +203,10 @@
             @media (max-width: 575px) {
                 width: 25px;
                 height: 10px;
+            }
+            @media (min-width: 576px) and (max-width: 991px) {
+                width: 70px;
+                height: 20px;
             }
         }
     }
@@ -183,6 +221,10 @@
             height: 18px;
             margin-top: 10px;
         }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 40px;
+            height: 40px;
+        }
     }
     &.neptune {
         background-color: #b5ddee;
@@ -193,6 +235,10 @@
             width: 17px;
             height: 17px;
             margin-top: 20px;
+        }
+        @media (min-width: 576px) and (max-width: 991px) {
+            width: 30px;
+            height: 30px;
         }
     }
 

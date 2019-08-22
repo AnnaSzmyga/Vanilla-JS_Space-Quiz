@@ -102,6 +102,9 @@ body {
     cursor: pointer;
     transition: .3s;
     outline: none;
+    @media (max-width: 575px) {
+        font-size: 20px;
+    }
 
     &:hover {
         transform: scale(1.1);
@@ -115,6 +118,10 @@ body {
     width: 200px;
     height: 50px;
     background-color: $blue;
+    @media (max-width: 575px) {
+        width: 140px;
+        height: 40px;
+    }
 
     &:hover {
         background-color: lighten($blue, 10%);
@@ -124,6 +131,10 @@ body {
         position: absolute;
         left: 30px;
         bottom: 110px;
+        @media (max-width: 575px) {
+            bottom: 140px;
+            left: 20px;
+        }
     }
 }
 
@@ -136,6 +147,12 @@ body {
     position: absolute;
     left: 30px;
     bottom: 40px;
+    @media (max-width: 575px) {
+        width: 140px;
+        height: 40px;
+        bottom: 90px;
+        left: 20px;
+    }
 
     &:hover {
         background-color: lighten($red, 10%);
@@ -154,6 +171,7 @@ body {
         left: 20px;
         bottom: 5px;
         transform: none;
+        font-size: 14px;
     }
 
     &__heading {

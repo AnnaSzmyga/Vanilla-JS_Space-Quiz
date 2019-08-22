@@ -63,7 +63,7 @@
         border-radius: 50%;
         position: relative;
         overflow: hidden;
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             width: 60px;
             height: 150px;
         }
@@ -79,7 +79,7 @@
             top: 0;
             left: 0;
 
-            @media (max-width: 575px) {
+            @media (max-width: 767px) {
                 width: 60px;
                 height: 150px;
                 box-shadow: inset 2px 6px rgba(0, 0, 0, .2);
@@ -97,7 +97,7 @@
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             height: 30px;
         }
     }
@@ -114,7 +114,7 @@
         transform: translateX(-50%);
         box-shadow: inset 5px 5px rgba(128, 128, 128, .5);
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             width: 30px;
             height: 30px;
             border: 3px solid $red;
@@ -139,7 +139,7 @@
         box-shadow: inset 4px 4px rgba(128, 128, 128, .4);
         text-transform: capitalize;
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             width: 40px;
             height: 25px;
             border: 2px solid $red;
@@ -163,7 +163,7 @@
         transform: translateX(-50%);
         box-shadow: inset 5px 4px rgba(0, 0, 0, .2);
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             width: 70px;
             height: 25px;
             border-top-left-radius: 15px;
@@ -180,7 +180,7 @@
         border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
         box-shadow: 5px 5px 20px #f4d109;
 
-        @media (max-width: 575px) {
+        @media (max-width: 767px) {
             top: 18px;
         }
 

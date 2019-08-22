@@ -74,6 +74,8 @@
   transform: translate(150px, -150px) scale(0.5);
   transition: .3s;
   box-shadow: 1px 1px 10px #a6a6b2;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 @media (max-width: 575px) {
@@ -97,6 +99,14 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.mercury {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+  }
+}
+
 .planet.venus {
   background-color: #b794c1;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='18' viewBox='0 0 100 18'%3E%3Cpath fill='%23e5b9ec' fill-opacity='0.52' d='M61.82 18c3.47-1.45 6.86-3.78 11.3-7.34C78 6.76 80.34 5.1 83.87 3.42 88.56 1.16 93.75 0 100 0v6.16C98.76 6.05 97.43 6 96 6c-9.59 0-14.23 2.23-23.13 9.34-1.28 1.03-2.39 1.9-3.4 2.66h-7.65zm-23.64 0H22.52c-1-.76-2.1-1.63-3.4-2.66C11.57 9.3 7.08 6.78 0 6.16V0c6.25 0 11.44 1.16 16.14 3.42 3.53 1.7 5.87 3.35 10.73 7.24 4.45 3.56 7.84 5.9 11.31 7.34zM61.82 0h7.66a39.57 39.57 0 0 1-7.34 4.58C57.44 6.84 52.25 8 46 8S34.56 6.84 29.86 4.58A39.57 39.57 0 0 1 22.52 0h15.66C41.65 1.44 45.21 2 50 2c4.8 0 8.35-.56 11.82-2z'%3E%3C/path%3E%3C/svg%3E");
@@ -110,6 +120,13 @@
     width: 10px;
     height: 10px;
     margin-top: 50px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.venus {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -130,6 +147,13 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.earth {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 .planet.mars {
   background-color: #ac2f23;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23ec939b' fill-opacity='0.38' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -143,6 +167,13 @@
     width: 12px;
     height: 12px;
     margin-top: 30px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.mars {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -162,6 +193,13 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.jupiter {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 .planet.saturn {
   background-color: #648b63;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2311700f' fill-opacity='0.66' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -175,6 +213,13 @@
     width: 17px;
     height: 17px;
     margin-top: 30px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.saturn {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -199,6 +244,13 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.saturn::before, .planet.saturn::after {
+    border: 6px solid #00c7e8;
+    border-top: none;
+  }
+}
+
 .planet.saturn::before {
   width: 140px;
   height: 35px;
@@ -211,6 +263,13 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.saturn::before {
+    width: 90px;
+    height: 20px;
+  }
+}
+
 .planet.saturn::after {
   width: 170px;
   height: 60px;
@@ -220,6 +279,13 @@
   .planet.saturn::after {
     width: 25px;
     height: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.saturn::after {
+    width: 70px;
+    height: 20px;
   }
 }
 
@@ -239,6 +305,13 @@
   }
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.uranus {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .planet.neptune {
   background-color: #b5ddee;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23139ca9' fill-opacity='0.26'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -251,6 +324,13 @@
     width: 17px;
     height: 17px;
     margin-top: 20px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .planet.neptune {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -416,7 +496,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__body {
     width: 60px;
     height: 150px;
@@ -435,7 +515,7 @@
   left: 0;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__body::after {
     width: 60px;
     height: 150px;
@@ -454,7 +534,7 @@
   border-bottom-right-radius: 50%;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__top {
     height: 30px;
   }
@@ -473,7 +553,7 @@
   box-shadow: inset 5px 5px rgba(128, 128, 128, 0.5);
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__window {
     width: 30px;
     height: 30px;
@@ -500,7 +580,7 @@
   text-transform: capitalize;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__numbers {
     width: 40px;
     height: 25px;
@@ -526,7 +606,7 @@
   box-shadow: inset 5px 4px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__bottom {
     width: 70px;
     height: 25px;
@@ -545,7 +625,7 @@
   box-shadow: 5px 5px 20px #f4d109;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .spaceship__flame {
     top: 18px;
   }
@@ -702,6 +782,12 @@ body {
   outline: none;
 }
 
+@media (max-width: 575px) {
+  .button, .player-name-modal .ok-button, .start-button, .finish-button {
+    font-size: 20px;
+  }
+}
+
 .button:hover, .player-name-modal .ok-button:hover, .start-button:hover, .finish-button:hover {
   transform: scale(1.1);
   box-shadow: 4px 4px 10px grey;
@@ -714,6 +800,13 @@ body {
   background-color: #0478ed;
 }
 
+@media (max-width: 575px) {
+  .start-button {
+    width: 140px;
+    height: 40px;
+  }
+}
+
 .start-button:hover {
   background-color: #2992fb;
 }
@@ -724,6 +817,13 @@ body {
   bottom: 110px;
 }
 
+@media (max-width: 575px) {
+  .start-button.moved {
+    bottom: 140px;
+    left: 20px;
+  }
+}
+
 .finish-button {
   margin-top: 70px;
   width: 200px;
@@ -732,6 +832,15 @@ body {
   position: absolute;
   left: 30px;
   bottom: 40px;
+}
+
+@media (max-width: 575px) {
+  .finish-button {
+    width: 140px;
+    height: 40px;
+    bottom: 90px;
+    left: 20px;
+  }
 }
 
 .finish-button:hover {
@@ -752,6 +861,7 @@ body {
     left: 20px;
     bottom: 5px;
     transform: none;
+    font-size: 14px;
   }
 }
 

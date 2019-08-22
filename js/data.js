@@ -61,7 +61,7 @@ const initialQuestions = [
     }
     ,
     {
-        content: "Ile czasu potrzebuje Księżyc aby okrążyć Ziemię?",
+        content: "Ile czasu potrzebuje Księżyc, aby okrążyć Ziemię?",
         goodAnswer: "27 dni",
         answers: ["1 dzień", "1 rok", "27 dni"]
     },
@@ -92,7 +92,7 @@ const initialQuestions = [
     },
     {
         content: "Na którą planetę została wystrzelona sonda kosmiczna Magellan?",
-        goodAnswer: "na Jowisza",
+        goodAnswer: "na Wenus",
         answers: ["na Jowisza", "na Marsa", "na Wenus"]
     },
     {
@@ -116,7 +116,7 @@ const initialQuestions = [
         answers: ["na Neptuna", "na Marsa", "na Saturna"]
     },
     {
-        content: "Zczego jest zbudowany Jowisz?",
+        content: "Z czego jest zbudowany Jowisz?",
         goodAnswer: "z gazu",
         answers: ["ze skał", "z lodu", "z gazu"]
     },
